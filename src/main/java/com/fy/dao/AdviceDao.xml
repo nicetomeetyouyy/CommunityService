@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fy.dao.AdviceDao">
+<select id="getAdviceNumber" resultType="int">
+    select count(id) from advice
+</select>
+    <select id="findAdviceByPage" resultType="com.fy.entity.Advice">
+        SELECT * FROM advice LIMIT #{0} OFFSET #{1}
+    </select>
+    <insert id="insertAdvice" parameterType="com.fy.entity.Advice">
+        insert into advice(user_id,tel,contact,email,description,state)
+        values (#{user_id},#{tel},#{contact},#{email},#{description},#{state})
+    </insert>
+    <delete id="deleteAdvice">
+        delete from advice where id =#{0}
+    </delete>
+    <select id="findByUserId" resultType="com.fy.entity.Advice">
+        SELECT * from advice where user_id=#{0}
+    </select>
+    <update id="updateAdvice" >
+        update advice set state=1,answer=#{0} where id=#{1}
+    </update>
+    <select id="untreatedAdvice" resultType="com.fy.entity.Advice">
+        select * from advice where state=-1
+    </select>
+</mapper>

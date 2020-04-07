@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fy.dao.RenterBillDao">
+
+<select id="findRenterBillByRenter_id" resultType="com.fy.entity.RenterBill">
+SELECT * from renter_bill where renter_id=#{0}
+</select>
+    <select id="getRenter_billNumber" resultType="int">
+        select count(id) from renter_bill
+    </select>
+    <select id="getBillNumberByPage" resultType="com.fy.entity.RenterBill">
+        SELECT * FROM renter_bill LIMIT #{0} OFFSET #{1}
+    </select>
+    <insert id="insertRenterBill" parameterType="com.fy.entity.RenterBill">
+       insert into renter_bill(renter_id,address,room_charge,
+            use_power,use_water,use_gas,power_cost,water_cost,gas_cost,total_cost,
+            state,cowner_id) values (
+            #{renter_id},#{address},#{room_charge},
+            #{use_power},#{use_water},#{use_gas},#{power_cost},#{water_cost},
+            #{gas_cost},#{total_cost},
+            #{state},#{owner_id}
+            )
+    </insert>
+    <delete id="deleteRenterBill">
+        delete from renter_bill where id=#{0}
+    </delete>
+    <select id="findRenterBillByOwner_id" resultType="com.fy.entity.RenterBill">
+SELECT * from renter_bill where owner_id=#{0}
+</select>
+    <update id="updateRenterBill">
+        update renter_bill set state=#{0} where id=#{1}
+    </update>
+</mapper>

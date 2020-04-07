@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fy.dao.RepairDao">
+    <select id="getRepairNumber" resultType="int">
+    select count(id) from repair
+</select>
+    <select id="findRepairByPage" resultType="com.fy.entity.Repair">
+        SELECT * FROM repair LIMIT #{0} OFFSET #{1}
+    </select>
+    <insert id="insertRepair" parameterType="com.fy.entity.Repair">
+        insert into repair(user_id,address,fault,tel,description,repair_time,state)
+        values (#{user_id},#{address},#{fault},#{tel},#{description},now(),-1)
+    </insert>
+    <delete id="deleteRepair">
+        delete from repair where id =#{0}
+    </delete>
+    <select id="findRepairByUserId" resultType="com.fy.entity.Repair">
+        SELECT * from repair where user_id=#{0}
+    </select>
+    <update id="updateState" >
+        update repair set state=#{0} where id=#{1}
+    </update>
+    <select id="untreatedRepair" resultType="com.fy.entity.Repair">
+        select * from repair where state=-1
+    </select>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fy.dao.LoginUserDao">
+    <select id="queryNameAndPassword" resultType="com.fy.entity.LoginUser">
+    Select * from login_user where login_name=#{0} and password=#{1}
+</select>
+    <insert id="insertLoginUser">
+     insert into login_user(login_name,password,create_time)values(#{0},#{1},now())
+    </insert>
+    <update id="updateLoginTime">
+        update login_user set login_time=now() where user_id=#{0}
+    </update>
+    <delete id="deleteLoginUserByUser_id">
+        delete from login_user where user_id=#{0}
+    </delete>
+    <select id="getUserNumber" resultType="int">
+        SELECT COUNT(*) FROM login_user
+    </select>
+    <select id="getUserByPage" resultType="com.fy.entity.LoginUser">
+      SELECT *FROM login_user LIMIT #{0} OFFSET #{1}
+    </select>
+
+    <select id="seachUser"  resultType="com.fy.entity.LoginUser">
+        SELECT *FROM login_user where login_name like '%${0}%'
+    </select>
+    
+    <update id="updatePassword" >
+        update login_user set passward=#{1} where user_id=#{0}
+    </update>
+    <select id="findByUser_id" resultType="com.fy.entity.LoginUser">
+        select * from login_user where user_id=#{0}
+    </select>
+</mapper>
