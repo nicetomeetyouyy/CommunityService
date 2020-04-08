@@ -105,7 +105,7 @@
     </pluginManagement>
     <resources>
       <resource>
-        <directory>../CommunituService/src/main/java</directory>
+        <directory>../CommunityService/src/main/java</directory>
         <includes>
           <include>**/*.xml</include>
         </includes>

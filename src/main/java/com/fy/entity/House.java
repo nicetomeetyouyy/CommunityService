@@ -11,9 +11,9 @@ public class House {
     @Id@GeneratedValue
     private Long id;
     private String address;
-    private int area;
+    private String area;
     private String type;
-    private Date register_time;
+    private String  register_time;
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class House {
         this.address = address;
     }
 
-    public int getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(int area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
@@ -47,15 +47,15 @@ public class House {
         this.type = type;
     }
 
-    public Date getRegister_time() {
+    public String getRegister_time() {
         return register_time;
     }
 
-    public void setRegister_time(Date register_time) {
+    public void setRegister_time(String register_time) {
         this.register_time = register_time;
     }
 
-    public House(Long id, String address, int area, String type, Date register_time) {
+    public House(Long id, String address, String area, String type, String register_time) {
         this.id = id;
         this.address = address;
         this.area = area;

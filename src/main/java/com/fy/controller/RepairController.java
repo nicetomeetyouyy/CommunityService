@@ -3,6 +3,7 @@ package com.fy.controller;
 import com.fy.entity.Repair;
 import com.fy.service.RepairService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +32,7 @@ public class RepairController {
     }
 
     @RequestMapping("addRepair")
-    public Map<String,Object> addRepair(Repair repair){
+    public Map<String,Object> addRepair(@RequestBody Repair repair){
         Map<String,Object> map=new HashMap<>();
         try {
             repairService.insertRepair(repair);
@@ -46,11 +47,11 @@ public class RepairController {
         return map;
     }
     @RequestMapping("delete")
-    public Map<String,Object> deleteRepair(String id){
-        int i= Integer.valueOf(id);
+    public Map<String,Object> deleteRepair(@RequestBody Repair repair){
+        int id= repair.getId();
         Map<String,Object> map=new HashMap<>();
         try {
-            repairService.deleteRepair(i);
+            repairService.deleteRepair(id);
         }catch (Exception e){
             map.put("code","-1");
             map.put("msg","删除失败");
@@ -61,8 +62,9 @@ public class RepairController {
         return map;
     }
     @RequestMapping("setState")
-    public Map<String,Object> setState(int state,int id){
-        int i= Integer.valueOf(id);
+    public Map<String,Object> setState(@RequestBody Repair repair){
+        int id= repair.getId();
+        int state=repair.getState();
         Map<String,Object> map=new HashMap<>();
         try{
             repairService.updateState(state,id);

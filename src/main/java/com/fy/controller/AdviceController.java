@@ -3,6 +3,7 @@ package com.fy.controller;
 import com.fy.entity.Advice;
 import com.fy.service.AdviceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ public class AdviceController {
     @Autowired
     private AdviceService adviceService;
     @RequestMapping("advice/addAdvice")
-    public Map<String,Object> addAdvice(Advice advice){
+    public Map<String,Object> addAdvice(@RequestBody Advice advice){
         Map<String,Object> map=new HashMap<>();
         advice.setState(-1);
         try {
@@ -45,11 +46,11 @@ public class AdviceController {
         return map;
     }
     @RequestMapping("advice/delete")
-    public Map<String,Object> deleteAdvice(String id){
-        int i= Integer.valueOf(id);
+    public Map<String,Object> deleteAdvice(@RequestBody Advice advice){
+        int id=advice.getId();
         Map<String,Object> map=new HashMap<>();
         try {
-            adviceService.deleteAdvice(i);
+            adviceService.deleteAdvice(id);
         }catch (Exception e){
             map.put("code","-1");
             map.put("msg","删除失败");
@@ -70,11 +71,12 @@ public class AdviceController {
         return advices;
     }
     @RequestMapping("advice/setAnswer")
-    public Map<String,Object> setAnswer(String answer, int id){
-        int i= Integer.valueOf(id);
+    public Map<String,Object> setAnswer(@RequestBody Advice advice){
+        String answer=advice.getAnswer();
+        int id=advice.getId();
         Map<String,Object> map=new HashMap<>();
         try{
-            adviceService.updateAdvice(answer,i);
+            adviceService.updateAdvice(answer,id);
         }catch (Exception e){
             map.put("code","-1");
             map.put("msg","修改失败");

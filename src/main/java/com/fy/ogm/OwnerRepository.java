@@ -20,6 +20,22 @@ public interface OwnerRepository extends Neo4jRepository<Owner,Long> {
     List<Owner> findByNameContaining(String name);
     @Query("MATCH(o:owner{user_id:{0}}) return o")
     Owner findByUser_id(String user_id);
+
+    /**
+     * 将业主和租户关联
+     * @param owner_id
+     * @param renter_id
+     */
+    @Query("Match(o:owner) where id(o)={0} match(r:renter) where id(r)={1} create(o)-[:isLandlord]->(r)")
+    void relatedRenter(Long owner_id,Long renter_id);
+
+    /**
+     * 将业主和房产关联
+     * @param owner_id
+     * @param house_id
+     */
+    @Query("Match(o:owner) where id(o)={0} match(h:house) where id(h)={1} create(o)-[:isOwner]->(h)")
+    void relatedHouse(Long owner_id,Long house_id);
 }
 
 ;

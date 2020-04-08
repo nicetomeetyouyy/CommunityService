@@ -16,4 +16,8 @@ public interface RenterRepository extends Neo4jRepository<Renter,Long> {
     List<Renter> findByNameContaining(String name);
     @Query("MATCH(o:renter{user_id:{0}}) return o")
     Renter findByUser_id(String user_id);
+
+    @Query("Match(r:renter) where id(r)={0} match(h:house) where id(h)={1} create(r)-[:isRenter]->(h)")
+    void relatedHouse(Long renter_id,Long house_id);
+
 }

@@ -5,6 +5,7 @@ import com.fy.ogm.RenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ public class RenterController {
     private RenterRepository renterRepository;
 
     @RequestMapping("addRenter")
-    public Map<String, Object> addRepair(Renter renter) {
+    public Map<String, Object> addRepair(@RequestBody Renter renter) {
         Map<String, Object> map = new HashMap<>();
         try {
             renterRepository.save(renter);
@@ -52,8 +53,8 @@ public class RenterController {
     }
 
     @RequestMapping("delete")
-    public Map<String, Object> deleteRenter(String id) {
-
+    public Map<String, Object> deleteRenter(@RequestBody Renter renter) {
+        Long id=renter.getId();
         Map<String, Object> map = new HashMap<>();
         try {
             renterRepository.deleteById(Long.valueOf(id));
@@ -69,11 +70,18 @@ public class RenterController {
     }
 
     @RequestMapping("updateRenter")
-    public Map<String, Object> updateRenter(String id, String name, String sex, String age, String tel, String identity, String user_id, String check_in) {
-        Long i = Long.valueOf(id);
+    public Map<String, Object> updateRenter(@RequestBody Renter renter) {
+        Long id = renter.getId();
+        String name=renter.getName();
+        String sex=renter.getSex();
+        String age=renter.getAge();
+        String tel=renter.getTel();
+        String identity=renter.getIdentity();
+        String user_id=renter.getUser_id();
+        String check_in=renter.getCheck_in();
         Map<String, Object> map = new HashMap<>();
-        Renter renter = renterRepository.updateRenter(i, name, sex, age, tel, identity, user_id,check_in);
-        if (renter == null) {
+        Renter renter1 = renterRepository.updateRenter(id, name, sex, age, tel, identity, user_id,check_in);
+        if (renter1 == null) {
             map.put("code", "-1");
             map.put("msg", "修改失败");
             return map;
@@ -93,11 +101,27 @@ public class RenterController {
     }
 
     @RequestMapping("findByUser_id")
-    public Renter findOwnerByUser_id(String user_id) {
+    public Renter findRenterByUser_id(String user_id) {
         Renter renter = renterRepository.findByUser_id(user_id);
         if (renter != null) {
             return renter;
         } else return null;
+    }
+
+    @RequestMapping("relatedHouse")
+    public Map<String,Object> relatedHouse(Long renter_id,Long house_id) {
+        Map<String,Object> map=new HashMap<>();
+        try {
+            renterRepository.relatedHouse(renter_id,house_id);
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("code","-1");
+            map.put("msg","审核失败");
+            return map;
+        }
+        map.put("code","0");
+        map.put("msg","审核成功");
+        return map;
     }
 }
 

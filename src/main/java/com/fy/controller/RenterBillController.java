@@ -4,6 +4,7 @@ import com.fy.dao.RenterBillDao;
 import com.fy.entity.RenterBill;
 import com.fy.service.RenterBillService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,7 +41,7 @@ public class RenterBillController {
        return map;
    }
    @RequestMapping("renter_bill/addRenterBill")
-    public Map<String,Object> addRenterBill(RenterBill renterBill){
+    public Map<String,Object> addRenterBill(@RequestBody RenterBill renterBill){
         Map<String,Object> map=new HashMap<>();
         renterBill.setState(-1);
         try {
@@ -56,11 +57,11 @@ public class RenterBillController {
         return map;
     }
     @RequestMapping("renter_bill/delete")
-    public Map<String,Object> deleteRenterBill(String id){
-        int i= Integer.valueOf(id);
+    public Map<String,Object> deleteRenterBill(@RequestBody RenterBill renterBill){
+        int id=renterBill.getId();
         Map<String,Object> map=new HashMap<>();
         try {
-            renterBillService.deleteRenterBill(i);
+            renterBillService.deleteRenterBill(id);
         }catch (Exception e){
             map.put("code","-1");
             map.put("msg","删除失败");
