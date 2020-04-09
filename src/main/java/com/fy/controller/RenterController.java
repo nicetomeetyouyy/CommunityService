@@ -123,5 +123,15 @@ public class RenterController {
         map.put("msg","审核成功");
         return map;
     }
+  /*  @RequestMapping("findRelation")
+    public List<Object> findRelation(String user_id){
+        System.out.println(user_id);
+        List<Object> objects =renterRepository.findRelation(user_id);
+        if(objects!=null){
+            return objects;
+        }else return null;
+    }*/
+
+
 }
 

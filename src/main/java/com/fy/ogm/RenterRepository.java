@@ -1,5 +1,7 @@
 package com.fy.ogm;
 
+import com.fy.entity.House;
+import com.fy.entity.Owner;
 import com.fy.entity.Renter;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
@@ -17,7 +19,29 @@ public interface RenterRepository extends Neo4jRepository<Renter,Long> {
     @Query("MATCH(o:renter{user_id:{0}}) return o")
     Renter findByUser_id(String user_id);
 
+    /**
+     * 将房子和租户关联
+     * @param renter_id
+     * @param house_id
+     */
     @Query("Match(r:renter) where id(r)={0} match(h:house) where id(h)={1} create(r)-[:isRenter]->(h)")
     void relatedHouse(Long renter_id,Long house_id);
+
+    /**
+     * 查看租户租住的房子信息
+     * @param renter_id
+     * @return
+     */
+     @Query("Match(r:renter) where id(r)={0} match(r)-[:isRenter]->(h:house) return h")
+    List<House> findHouse(String renter_id);
+
+    /**
+     * 查看租户的业主信息
+     * @param renter_id
+     * @return
+     */
+     @Query("Match(r:renter) where id(r)={0} match(r)<-[:isLandlord]-(o:owner) return o")
+    List<Owner> findOwner(Long renter_id);
+
 
 }

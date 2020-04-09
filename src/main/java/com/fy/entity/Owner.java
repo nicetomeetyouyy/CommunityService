@@ -1,9 +1,6 @@
 package com.fy.entity;
 
 import org.neo4j.ogm.annotation.*;
-import org.neo4j.ogm.cypher.query.SortOrder;
-
-import java.util.Set;
 
 @NodeEntity(label = "owner")
 public class Owner {
@@ -14,7 +11,6 @@ public class Owner {
     private String age;
     private String tel;
     private String identity;
-    @Property("user_id")
     private String user_id;
     public Owner() {
     }

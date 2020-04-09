@@ -1,6 +1,9 @@
 package com.fy.controller;
 
+import com.fy.entity.House;
 import com.fy.entity.Owner;
+import com.fy.entity.Park;
+import com.fy.entity.Renter;
 import com.fy.ogm.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -132,5 +135,59 @@ public class OwnerController  {
         map.put("code","0");
         map.put("msg","审核成功");
         return map;
+    }
+
+    @RequestMapping("findRenter")
+    public List<Renter> findRenter(String user_id){
+        List<Renter> renters =ownerRepository.findRenter(user_id);
+        System.out.println(user_id);
+        if(renters!=null){
+            return renters;
+        }else return null;
+    }
+
+    @RequestMapping("relatedPark")
+    public Map<String,Object> relatedPark(Long owner_id,Long park_id) {
+        Map<String,Object> map=new HashMap<>();
+        try {
+            ownerRepository.relatedPark(owner_id,park_id);
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("code","-1");
+            map.put("msg","审核失败");
+            return map;
+        }
+        map.put("code","0");
+        map.put("msg","审核成功");
+        return map;
+    }
+    @RequestMapping("findRenterHouse")
+    public List<House> findRenterHouse(Long owner_id){
+        List<House> houses =ownerRepository.findRenterHouse(owner_id);
+        if(houses!=null){
+            return houses;
+        }else return null;
+    }
+    @RequestMapping("findHouse")
+    public List<House> findHouse(Long owner_id){
+        List<House> houses =ownerRepository.findHouse(owner_id);
+        if(houses!=null){
+            return houses;
+        }else return null;
+    }
+
+    @RequestMapping("findRenterPark")
+    public List<Park> findRenterPark(Long owner_id){
+        List<Park> parks =ownerRepository.findRenterPark(owner_id);
+        if(parks!=null){
+            return parks;
+        }else return null;
+    }
+    @RequestMapping("findPark")
+    public List<Park> findPark(Long owner_id){
+        List<Park>parks =ownerRepository.findPark(owner_id);
+        if(parks!=null){
+            return parks;
+        }else return null;
     }
 }
