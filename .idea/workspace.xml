@@ -5,23 +5,41 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/controller/HouseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/controller/HouseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/controller/LoginUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/controller/LoginUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/controller/OwnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/controller/OwnerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/controller/ParkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/controller/ParkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/controller/RenterBillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/controller/RenterBillController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/controller/RenterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/controller/RenterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/entity/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/entity/House.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/entity/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/entity/Owner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/entity/Parking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/ogm/HouseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/ogm/HouseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/dao/LoginUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/dao/LoginUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/dao/RenterBillDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/dao/RenterBillDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/dao/RoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/dao/RoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/dao/RoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/dao/RoleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/entity/RenterBill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/entity/RenterBill.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/ogm/OwnerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/ogm/OwnerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/ogm/ParkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/ogm/ParkRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/ogm/RenterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/ogm/RenterRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/service/impl/LoginUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/service/impl/LoginUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fy/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fy/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/CommunityService.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fy/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fy/controller/HouseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/controller/HouseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/controller/LoginUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/controller/LoginUserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fy/controller/OwnerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/controller/OwnerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/entity/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/entity/House.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/entity/Owner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/entity/Owner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/entity/Parking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/ogm/HouseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/ogm/HouseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/controller/ParkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/controller/ParkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/controller/RenterBillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/controller/RenterBillController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/controller/RenterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/controller/RenterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/dao/LoginUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/dao/LoginUserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/dao/RenterBillDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/dao/RenterBillDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/dao/RoleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/dao/RoleDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/dao/RoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/dao/RoleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/entity/RenterBill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/entity/RenterBill.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fy/ogm/OwnerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/ogm/OwnerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/ogm/ParkRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/ogm/ParkRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fy/ogm/RenterRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/ogm/RenterRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/service/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/service/RoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/service/impl/LoginUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/service/impl/LoginUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fy/service/impl/RoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fy/service/impl/RoleServiceImpl.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,11 +60,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Pages</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,8 +93,8 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
@@ -153,6 +166,11 @@
       <workItem from="1586156298621" duration="29045000" />
       <workItem from="1586260515885" duration="13721000" />
       <workItem from="1586343868915" duration="15613000" />
+      <workItem from="1586424609617" duration="17952000" />
+      <workItem from="1586524674785" duration="5667000" />
+      <workItem from="1586533499399" duration="660000" />
+      <workItem from="1586534184503" duration="795000" />
+      <workItem from="1586535107834" duration="2293000" />
     </task>
     <servers />
   </component>
@@ -171,78 +189,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>CommunituService</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

@@ -17,5 +17,14 @@
     <update id="updateRole" >
         update role set role_name=#{1},description=#{2} where role_id=#{0}
     </update>
+    <select id="findUserRole" resultType="com.fy.entity.LoginUser">
+        SELECT * from  role where role_id in(select role_id from user_role where role_id=#{0})
+    </select>
+    <insert id="insertRoleAuthority" >
+        insert into user_role(role_id,user_id) values(#{0},#{1})
+    </insert>
 
+    <delete id="deleteRoleAuthority">
+        delete from user_role where role_id=#{0} and user_id=#{1}
+    </delete>
 </mapper>

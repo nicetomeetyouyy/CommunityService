@@ -138,9 +138,9 @@ public class OwnerController  {
     }
 
     @RequestMapping("findRenter")
-    public List<Renter> findRenter(String user_id){
-        List<Renter> renters =ownerRepository.findRenter(user_id);
-        System.out.println(user_id);
+    public List<Renter> findRenter(Long owner_id){
+        List<Renter> renters =ownerRepository.findRenter(owner_id);
+
         if(renters!=null){
             return renters;
         }else return null;
@@ -161,12 +161,16 @@ public class OwnerController  {
         map.put("msg","审核成功");
         return map;
     }
-    @RequestMapping("findRenterHouse")
-    public List<House> findRenterHouse(Long owner_id){
-        List<House> houses =ownerRepository.findRenterHouse(owner_id);
-        if(houses!=null){
-            return houses;
-        }else return null;
+    @RequestMapping("findRelation")
+    public Map<String,Object> findParkAndHouse(Long owner_id){
+        List<House> houses=ownerRepository.findHouse(owner_id);
+        List<Park>  parks=ownerRepository.findPark(owner_id);
+        List<Renter> renters=ownerRepository.findRenter(owner_id);
+        Map<String,Object> map=new HashMap<>();
+        map.put("houses",houses);
+        map.put("parks",parks);
+        map.put("renters",renters);
+        return map;
     }
     @RequestMapping("findHouse")
     public List<House> findHouse(Long owner_id){

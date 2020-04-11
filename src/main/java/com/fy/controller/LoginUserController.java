@@ -18,12 +18,12 @@ public class LoginUserController {
     /**
      * 登陆验证
      * @param login_name
-     * @param passward
+     * @param
      * @return
      */
     @RequestMapping("login/action")
-    public Map<String, Object> loginAction(String login_name, String passward){
-        LoginUser loginUser=loginUserService.queryNameAndPassword(login_name,passward);
+    public Map<String, Object> loginAction(String login_name, String password){
+        LoginUser loginUser=loginUserService.queryNameAndPassword(login_name,password);
         Map<String,Object> map=new HashMap<>();
         if(loginUser!=null){
             map.put("code","0");
@@ -56,11 +56,11 @@ public class LoginUserController {
         }
     }
 
-    @RequestMapping("user/update_passward")
-    public Map<String,Object> updatePassward(String user_id,String passward){
+    @RequestMapping("user/update_password")
+    public Map<String,Object> updatePassword(String user_id,String password){
 
         int id= Integer.valueOf(user_id);
-        loginUserService.updatePassword(id,passward);
+        loginUserService.updatePassword(id,password);
         LoginUser loginUser=loginUserService.findByUser_id(id);
         Map<String,Object> map=new HashMap<>();
         if(loginUser!=null){

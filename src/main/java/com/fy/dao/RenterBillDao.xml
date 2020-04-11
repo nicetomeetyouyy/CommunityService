@@ -14,11 +14,11 @@ SELECT * from renter_bill where renter_id=#{0}
     <insert id="insertRenterBill" parameterType="com.fy.entity.RenterBill">
        insert into renter_bill(renter_id,address,room_charge,
             use_power,use_water,use_gas,power_cost,water_cost,gas_cost,total_cost,
-            state,cowner_id) values (
+            state,owner_id,create_time) values (
             #{renter_id},#{address},#{room_charge},
             #{use_power},#{use_water},#{use_gas},#{power_cost},#{water_cost},
             #{gas_cost},#{total_cost},
-            #{state},#{owner_id}
+            #{state},#{owner_id},now()
             )
     </insert>
     <delete id="deleteRenterBill">

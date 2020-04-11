@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fy.dao.AuthorityDao">
+
+    <select id="findAll" resultType="com.fy.entity.Authority">
+   SELECT * from authority
+    </select>
+
+    <select id="findRoleAuthority" resultType="com.fy.entity.Authority">
+        SELECT * from  authority where authority_id in(select authority_id from role_authority where role_id=#{0})
+    </select>
+    <insert id="insertRoleAuthority" >
+        insert into role_authority(role_id,authority_id) values(#{0},#{1})
+    </insert>
+
+    <delete id="deleteRoleAuthority">
+        delete from role_authority where role_id=#{0} and authority_id=#{1}
+    </delete>
+
+</mapper>

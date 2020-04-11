@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fy.dao.RentListDao">
+
+    <select id="findByUser" resultType="com.fy.entity.RentList">
+   SELECT * from rentlist where froms=#{0}
+    </select>
+    <select id="getRentListNumber" resultType="int">
+        select count(id) from rentlist
+    </select>
+    <select id="getRentListByPage" resultType="com.fy.entity.RentList">
+        SELECT * FROM rentlist LIMIT #{0} OFFSET #{1}
+    </select>
+    <insert id="insertRentList" parameterType="com.fy.entity.RentList">
+       insert into rentlist(location,money,types,area,image,tel,froms,title,push_time)
+            values (#{location},#{money},#{types},#{area},#{image},#{tel},#{froms},#{title},now(),)
+    </insert>
+    <delete id="deleteRentList">
+        delete from rentlist where id=#{0}
+    </delete>
+</mapper>

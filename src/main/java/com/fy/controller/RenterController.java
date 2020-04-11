@@ -1,5 +1,8 @@
 package com.fy.controller;
 
+import com.fy.entity.House;
+import com.fy.entity.Owner;
+import com.fy.entity.Park;
 import com.fy.entity.Renter;
 import com.fy.ogm.RenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,14 +126,33 @@ public class RenterController {
         map.put("msg","审核成功");
         return map;
     }
-  /*  @RequestMapping("findRelation")
-    public List<Object> findRelation(String user_id){
-        System.out.println(user_id);
-        List<Object> objects =renterRepository.findRelation(user_id);
-        if(objects!=null){
-            return objects;
-        }else return null;
-    }*/
+    @RequestMapping("relatedPark")
+    public Map<String,Object> relatedPark(Long renter_id,Long park_id) {
+        Map<String,Object> map=new HashMap<>();
+        try {
+            renterRepository.relatedPark(renter_id,park_id);
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("code","-1");
+            map.put("msg","审核失败");
+            return map;
+        }
+        map.put("code","0");
+        map.put("msg","审核成功");
+        return map;
+    }
+
+    @RequestMapping("findRelation")
+    public Map<String,Object> findRelation(Long renter_id){
+        List<House> houses=renterRepository.findHouse(renter_id);
+        List<Park>  parks=renterRepository.findPark(renter_id);
+        List<Owner> owners=renterRepository.findOwner(renter_id);
+        Map<String,Object> map=new HashMap<>();
+        map.put("houses",houses);
+        map.put("parks",parks);
+        map.put("owner",owners);
+        return map;
+    }
 
 
 }

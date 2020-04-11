@@ -1,6 +1,7 @@
 package com.fy.controller;
 
 import com.fy.dao.RenterBillDao;
+import com.fy.entity.House;
 import com.fy.entity.RenterBill;
 import com.fy.service.RenterBillService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,5 +83,18 @@ public class RenterBillController {
         }
         return renterBills;
     }
-
+    @RequestMapping("renter_bill/updateState")
+    public Map<String, Object> updateState(int state, int id) {
+        Map<String, Object> map = new HashMap<>();
+        try {
+           renterBillService.updateRenterBill(state,id);
+        } catch (Exception e) {
+            map.put("code", "-1");
+            map.put("msg", "删除失败");
+            return map;
+        }
+        map.put("code", "0");
+        map.put("msg", "删除成功");
+        return map;
+    }
 }

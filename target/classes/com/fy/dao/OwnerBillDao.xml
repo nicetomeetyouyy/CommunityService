@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fy.dao.OwnerBillDao">
+
+    <select id="findByOwner" resultType="com.fy.entity.OwnerBill">
+   SELECT * from owner_bill where owner_id=#{0}
+    </select>
+    <select id="getOwnerBillNumber" resultType="int">
+        select count(id) from owner_bill
+    </select>
+    <select id="getOwnerBillByPage" resultType="com.fy.entity.OwnerBill">
+        SELECT * FROM owner_bill LIMIT #{0} OFFSET #{1}
+    </select>
+    <insert id="insertOwnerBill" parameterType="com.fy.entity.OwnerBill">
+       insert into owner_bill(id,owner_id,address,area,cost,other,other_cost,total,state,create_time)
+            values ( #{id},#{owner_id},#{address},#{area},#{cost},#{other},#{other_cost},#{total},#{state},now())
+    </insert>
+    <delete id="deleteOwnerBill">
+        delete from owner_bill where id=#{0}
+    </delete>
+    <update id="updateState">
+        update owner_bill set state=#{0} where id=#{1}
+    </update>
+</mapper>

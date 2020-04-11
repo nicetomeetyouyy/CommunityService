@@ -10,4 +10,9 @@ public interface RoleService {
     public void insertRole(String role_name,String description);
     public void updateRole(int role_id,String role_name,String description);
     public void deleteRole(int role_id);
+    Role findUserRole(int user_id);
+
+    void insertUserRole(int role_id, int user_id);
+
+    void deleteUserRole(int role_id, int user_id);
 }

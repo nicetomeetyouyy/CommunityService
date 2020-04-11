@@ -1,5 +1,7 @@
 package com.fy.entity;
 
+import java.util.Date;
+
 public class RenterBill {
     private int id;
     private int renter_id;
@@ -14,6 +16,7 @@ public class RenterBill {
     private int total_cost;
     private int state;
     private int owner_id;
+    private Date create_time;
     public int getId() {
         return id;
     }
@@ -110,18 +113,27 @@ public class RenterBill {
         this.state = state;
     }
 
-    public int getowner_id() {
-        return owner_id;
-    }
-
-    public void owner_id(int owner_id) {
-        this.owner_id = owner_id;
-    }
 
     public RenterBill() {
     }
 
-    public RenterBill(int id, int renter_id, String address, int room_charge, int use_power, int use_water, int use_gas, int power_cost, int water_cost, int gas_cost, int total_cost, int state, int create_owner_id) {
+    public int getOwner_id() {
+        return owner_id;
+    }
+
+    public void setOwner_id(int owner_id) {
+        this.owner_id = owner_id;
+    }
+
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
+    }
+
+    public RenterBill(int id, int renter_id, String address, int room_charge, int use_power, int use_water, int use_gas, int power_cost, int water_cost, int gas_cost, int total_cost, int state, int owner_id, Date create_time) {
         this.id = id;
         this.renter_id = renter_id;
         this.address = address;
@@ -134,6 +146,7 @@ public class RenterBill {
         this.gas_cost = gas_cost;
         this.total_cost = total_cost;
         this.state = state;
-        this.owner_id = create_owner_id;
+        this.owner_id = owner_id;
+        this.create_time = create_time;
     }
 }

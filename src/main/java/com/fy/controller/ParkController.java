@@ -1,6 +1,8 @@
 package com.fy.controller;
 
+import com.fy.entity.Owner;
 import com.fy.entity.Park;
+import com.fy.entity.Renter;
 import com.fy.ogm.ParkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -88,5 +90,15 @@ public class ParkController {
             map.put("msg","修改成功");
             return map;
         }
+    }
+
+    @RequestMapping("findRelation")
+    public Map<String,Object> findRelation(Long park_id){
+        List<Renter>  renters=parkRepository.findRenter(park_id);
+        List<Owner> owners=parkRepository.findOwner(park_id);
+        Map<String,Object> map=new HashMap<>();
+        map.put("renter",renters);
+        map.put("owner",owners);
+        return map;
     }
 }

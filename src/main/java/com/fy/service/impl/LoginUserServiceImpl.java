@@ -14,13 +14,13 @@ public class LoginUserServiceImpl implements LoginUserService {
 
     /**
      * 验证账号密码
-     * @param name 账号
-     * @param passward 密码
+     * @param
+     * @param
      * @return
      */
     @Override
-    public LoginUser queryNameAndPassword(String name, String passward) {
-        return loginUserDao.queryNameAndPassward(name,passward);
+    public LoginUser queryNameAndPassword(String name, String password) {
+        return loginUserDao.queryNameAndPassword(name,password);
     }
 
     /**

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fy.dao.SellDao">
+
+    <select id="findByUser" resultType="com.fy.entity.Sell">
+   SELECT * from sell where froms=#{0}
+    </select>
+    <select id="getSellNumber" resultType="int">
+        select count(id) from sell
+    </select>
+    <select id="getSellByPage" resultType="com.fy.entity.Sell">
+        SELECT * FROM sell LIMIT #{0} OFFSET #{1}
+    </select>
+    <insert id="insertSell" parameterType="com.fy.entity.Sell">
+       insert into Sell(title,description,money,tel,froms,image,push_time)
+            values (#{title},#{description},#{money},#{tel},#{froms},#{image},now())
+    </insert>
+    <delete id="deleteSell">
+        delete from Sell where id=#{0}
+    </delete>
+</mapper>

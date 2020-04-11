@@ -49,11 +49,11 @@ public interface OwnerRepository extends Neo4jRepository<Owner,Long> {
     void relatedPark(Long owner_id,Long park_id);
     /**
      * 查看业主下的租户
-     * @param user_id
+     * @param
      * @return
      */
-    @Query("MATCH (:owner{user_id:{0}})-[:isLandlord]->(r:renter) return r")
-    List<Renter> findRenter(String user_id);
+    @Query("MATCH (o:owner) where id(o)={0}  match (o)-[:isLandlord]->(r:renter) return r")
+    List<Renter> findRenter(Long owner_id);
 
     /**
      * 查看业主租出去的房子

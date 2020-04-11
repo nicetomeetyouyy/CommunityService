@@ -1,6 +1,8 @@
 package com.fy.controller;
 
 import com.fy.entity.House;
+import com.fy.entity.Owner;
+import com.fy.entity.Renter;
 import com.fy.ogm.HouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -90,5 +92,14 @@ public class HouseController {
         }else return null;
     }
 
+    @RequestMapping("findRelation")
+    public Map<String,Object> findRelation(Long house_id){
+        List<Renter>  renters=houseRepository.findRenter(house_id);
+        List<Owner> owners=houseRepository.findOwner(house_id);
+        Map<String,Object> map=new HashMap<>();
+        map.put("renter",renters);
+        map.put("owner",owners);
+        return map;
+    }
 
 }

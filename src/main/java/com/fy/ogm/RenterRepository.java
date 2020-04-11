@@ -2,6 +2,7 @@ package com.fy.ogm;
 
 import com.fy.entity.House;
 import com.fy.entity.Owner;
+import com.fy.entity.Park;
 import com.fy.entity.Renter;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
@@ -33,7 +34,7 @@ public interface RenterRepository extends Neo4jRepository<Renter,Long> {
      * @return
      */
      @Query("Match(r:renter) where id(r)={0} match(r)-[:isRenter]->(h:house) return h")
-    List<House> findHouse(String renter_id);
+    List<House> findHouse(Long renter_id);
 
     /**
      * 查看租户的业主信息
@@ -42,6 +43,18 @@ public interface RenterRepository extends Neo4jRepository<Renter,Long> {
      */
      @Query("Match(r:renter) where id(r)={0} match(r)<-[:isLandlord]-(o:owner) return o")
     List<Owner> findOwner(Long renter_id);
+    /**
+     * 将租户与停车位关联
+     * @param
+     * @param park_id
+     */
+    @Query("Match(r:renter) where id(r)={0} match(p:park) where id(p)={1} create(r)-[:isRenter]->(p)")
+    void relatedPark(Long renter_id,Long park_id);
 
+    /**
+     * 查看租户租的车位
+     */
+    @Query("MATCH (r:renter) where id(r)={0} Match (r)-[:isRenter]-(p:park) return p")
+    List<Park> findPark(Long renter_id);
 
 }
